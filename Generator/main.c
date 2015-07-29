@@ -1,7 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 static const FILE* fp;
+static const int genePool=4;
 
 int main()
 {
@@ -14,7 +17,14 @@ int commandLine()
     int valid = 0;
     length: // tag to return if something went wrong
     printf("Specify the length of the DNA sequence:");
-    if(!valid) goto length;
+
+    char DNAlength[10];
+    scanf("%s", DNAlength);
+
+    //if(!valid) goto length;
+    randomGeneration(5);
+
+    return 0;
 }
 
 unsigned int generateChain(int length)
@@ -23,6 +33,7 @@ unsigned int generateChain(int length)
 
 }
 
+/* basic file creation */
 int createFile (char* name, int length, char* data)
 {
     char fileLength[length];
@@ -30,6 +41,21 @@ int createFile (char* name, int length, char* data)
     strcpy(fileLength, data);
     fprintf(fp, "%s \n", fileLength);
     fclose(fp);
+
+    return 0;
+}
+
+/* Basic random number generation. */
+int randomGeneration(int reps) {
+    int i;
+    time_t t;
+
+    srand((unsigned) time(&t));
+
+    for(i=0; i<reps; i++) {
+        int num =  rand() % 4;
+        printf("%d \n", num);
+    }
 
     return 0;
 }
