@@ -14,3 +14,9 @@ int commandLine()
     printf("Specify the length of the DNA sequence:");
     if(!valid) goto length;
 }
+
+unsigned int generateChain(int length)
+{
+    int genes[] = {'A','G','C', 'T'};
+
+}
