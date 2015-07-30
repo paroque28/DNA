@@ -4,7 +4,7 @@
 #include <time.h>
 
 static const FILE* fp;
-static const int genePool=4;
+
 
 int main()
 {
@@ -16,23 +16,26 @@ int main()
 
 int commandLine()
 {
-    int valid = 0;
-    length: // tag to return if something went wrong
-    printf("Specify the length of the DNA sequence:");
-    for (int i = 0; i < 10; ++i) {
-        getRandomNumber();
-    }
-    char DNAlength[10];
-    scanf("%s", DNAlength);
+    int valid = 1;
+    unsigned int length = 0;
+    lengthTag: // tag to return if something went wrong
+    printf("Specify the length of the DNA sequence:\n");
 
-    //if(!valid) goto length;
+    scanf("%d", &length);// read from user
 
+    if(length < 7) valid = 0; // invalid input less than 7 digits
+    else valid = 1;
+    if(!valid) goto lengthTag; // reAsk if is an invalid input
+
+    generateChain(length);
     return 0;
 }
-
-unsigned int generateChain(int length)
+void generateChain(unsigned int length)
 {
     int genes[] = {'A','G','C', 'T'};
+    for (int i = 0; i < length; ++i) {
+        printf(genes[getRandomNumber()]);
+    }
 
 }
 
