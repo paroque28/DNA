@@ -5,7 +5,10 @@
 
 static const FILE* fp;
 
-
+int commandLine();
+void generateChain(unsigned int);
+int createFile(char* name, int length, char* data);
+int getRandomNumber();
 int main()
 {
     time_t t;
@@ -32,9 +35,9 @@ int commandLine()
 }
 void generateChain(unsigned int length)
 {
-    int genes[] = {'A','G','C', 'T'};
+    char genes[] = {'A','G','C', 'T'};
     for (int i = 0; i < length; ++i) {
-        printf(genes[getRandomNumber()]);
+        printf("%c",genes[getRandomNumber()]);
     }
 
 }
@@ -54,7 +57,7 @@ int createFile (char* name, int length, char* data)
 /* Basic random number generation. */
 int getRandomNumber() {
     int num =  rand() % 4;
-    printf("%d \n", num);
+    //printf("%d \n", num);
 
     return num;
 }
