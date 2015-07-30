@@ -2,13 +2,17 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <pwd.h>
+#include <unistd.h>
 
-static const FILE* fp;
+static const int MAX_NAME_LENGTH = 30;
+
 
 int commandLine();
-void generateChain(unsigned int);
-int createFile(char* name, int length, char* data);
+void generateChain(unsigned int,const char*);
 int getRandomNumber();
+const char* getHomePath();
+
 int main()
 {
     time_t t;
@@ -29,30 +33,39 @@ int commandLine()
     if(length < 7) valid = 0; // invalid input less than 7 digits
     else valid = 1;
     if(!valid) goto lengthTag; // reAsk if is an invalid input
-
-    generateChain(length);
+    nameTag:
+    printf("Specify the NAME of the file:\n");
+    char name[MAX_NAME_LENGTH];
+    scanf("%s", name);
+    if(strlen(name)<1) valid=0;
+    else valid =1;
+    if(!valid) goto nameTag; // reAsk if is an invalid input
+    generateChain(length, name);
     return 0;
 }
-void generateChain(unsigned int length)
+void generateChain(unsigned int length, const char* name)
 {
+    //init file
+    static const FILE* fp;
+    char path[MAX_NAME_LENGTH+2];
+    strcpy(path,getHomePath()); strcat(path,"/Desktop/"); strcat(path,name); strcat(path, ".dna");
+    printf(path);
+    fp=fopen(path, "w");
+
+    const char *homedir;
+
+
     char genes[] = {'A','G','C', 'T'};
     for (int i = 0; i < length; ++i) {
-        printf("%c",genes[getRandomNumber()]);
+        char randomChar = genes[getRandomNumber()];
+        printf("%c", randomChar);
+        fputc(randomChar,fp);
     }
 
-}
-
-/* basic file creation */
-int createFile (char* name, int length, char* data)
-{
-    char fileLength[length];
-    fp=fopen(name, "w");
-    strcpy(fileLength, data);
-    fprintf(fp, "%s \n", fileLength);
     fclose(fp);
 
-    return 0;
 }
+
 
 /* Basic random number generation. */
 int getRandomNumber() {
@@ -60,4 +73,11 @@ int getRandomNumber() {
     //printf("%d \n", num);
 
     return num;
+}
+
+const char* getHomePath()
+{
+    if (!(getenv("HOME"))) {
+        return getpwuid(getuid())->pw_dir;
+    }
 }
