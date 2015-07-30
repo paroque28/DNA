@@ -8,6 +8,8 @@ static const int genePool=4;
 
 int main()
 {
+    time_t t;
+    srand((unsigned) time(&t));
     commandLine();
     return 0;
 }
@@ -17,12 +19,13 @@ int commandLine()
     int valid = 0;
     length: // tag to return if something went wrong
     printf("Specify the length of the DNA sequence:");
-
+    for (int i = 0; i < 10; ++i) {
+        getRandomNumber();
+    }
     char DNAlength[10];
     scanf("%s", DNAlength);
 
     //if(!valid) goto length;
-    randomGeneration(5);
 
     return 0;
 }
@@ -46,16 +49,9 @@ int createFile (char* name, int length, char* data)
 }
 
 /* Basic random number generation. */
-int randomGeneration(int reps) {
-    int i;
-    time_t t;
+int getRandomNumber() {
+    int num =  rand() % 4;
+    printf("%d \n", num);
 
-    srand((unsigned) time(&t));
-
-    for(i=0; i<reps; i++) {
-        int num =  rand() % 4;
-        printf("%d \n", num);
-    }
-
-    return 0;
+    return num;
 }
