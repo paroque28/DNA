@@ -7,6 +7,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+typedef struct node {
+    int dir;
+    struct node * next;
+} node_t;
+
+
 
 extern const int SIMILARITY_MATRIX[4][4];
 extern const int GAP;

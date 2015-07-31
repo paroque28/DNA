@@ -5,6 +5,9 @@
 
 #include "alignment.h"
 
+
+
+
 const int SIMILARITY_MATRIX [4][4] ={{1,-1,-1,-1},{-1,1,-1,-1},{-1,-1,1,-1},{-1,-1,-1,1}};  //{{10,-1,-3,-4},{-1,7,-5,-3},{-3,5,9,0},{-4,-3,0,8}};
 const int GAP = -2;//-5
 /**
@@ -42,7 +45,6 @@ void needlemanWunsch(const char *a, int lengtha, const char *b, int lengthb) {
             //Diagonal
             if(i&&j)//i!=0 and j!=0. Check si existe lugar
             {
-                printf("Got %d on i:%d, j:%d\n:",getValueOfMatch(a[i-1],b[j-1]),i,j);
                 diag = results[i-1][j-1] + getValueOfMatch(a[i-1],b[j-1]);
             }
 
@@ -81,17 +83,79 @@ void needlemanWunsch(const char *a, int lengtha, const char *b, int lengthb) {
 
         }
     }
-
     //print the matrix for tests
     for (int j = 0; j < lengthb + 1; ++j) {
         printf("[");
         for (int i = 0; i < lengtha + 1; ++i) {
 
-            printf("%d ",resultsDirection[i][j]);
+            printf("%d ",results[i][j]);
         }
         printf("]\n");
     }
+    int i = lengtha;
+    int j = lengthb;
+    node_t *node = malloc(sizeof(node_t));
+    node->dir = resultsDirection[i][j];
+    node->next = NULL;
+    while (i || j)
+    {
+        node_t *prev = malloc(sizeof(node_t));
+        int step = resultsDirection[i][j];
+        prev->dir = step;
+        prev->next = node;
+        node = prev;
+        switch (step) { // Manipulate directions
+            case 1:
+                j--;
+                break;
+            case -1:
+                i--;
+                break;
+            case 0:
+                i--;
+                j--;
+                break;
+            default:
+                printf("Error retriving steps! Got: %d and options are(-1(left),0,1(rigth))",step);
+                exit(1);
+            }
 
+    }
+
+    i=0;
+    j=0;
+    while(node->next!= NULL)
+    {
+        char left, right;
+        switch (node->dir)
+        {
+            case 1:
+                right = b[j];
+                left = '-';
+                j++;
+                break;
+            case -1:
+                left = a[i];
+                right = '-';
+                i++;
+                break;
+            case 0:
+
+                left = a[i];
+                right = b[j];
+                i++;
+                j++;
+                break;
+        }
+
+
+        if(left == right) printf("%c = %c\n",left, right);
+        else printf("%c   %c\n",left, right);
+        node_t *prev = node;
+        node= node->next;
+        free(prev);
+    }
+    free(node); // Garbage collection
 
 
 }
