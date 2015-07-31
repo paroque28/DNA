@@ -8,8 +8,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-const int MATCHES[4][4]= {{10,-1,-3,-4},{-1,7,-5,-3},{-3,5,9,0},{-4,-3,0,8}};
-const int GAP = -5;
+extern const int SIMILARITY_MATRIX[4][4];
+extern const int GAP;
+static const int MIN_INT = -2147483647;
+
 int getValueOfMatch(char a, char b);
 int getCharValue(char value);
 char* needlemanWunsch(const char*,int,const char*, int);
