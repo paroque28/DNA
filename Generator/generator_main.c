@@ -4,9 +4,7 @@
 #include <time.h>
 #include <pwd.h>
 #include <unistd.h>
-
-static const int MAX_NAME_LENGTH = 30;
-
+#include "../Constants/constants.h"
 
 int commandLine();
 void generateChain(unsigned int,const char*);
@@ -48,7 +46,7 @@ void generateChain(unsigned int length, const char* name)
     //init file
     static const FILE* fp;
     char path[MAX_NAME_LENGTH+2];
-    strcpy(path,getHomePath()); strcat(path,"/Desktop/"); strcat(path,name); strcat(path, ".dna");
+    strcpy(path,getHomePath()); strcat(path,"/Desktop/"); strcat(path,name); strcat(path, extension);
     printf(path);
     fp=fopen(path, "w");
 

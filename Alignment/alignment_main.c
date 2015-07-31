@@ -1,36 +1,71 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <pwd.h>
+#include <unistd.h>
 
 #include "alignment.h"
-#include "stdlib.h"
+#include "../Constants/constants.h"
 
-static const FILE* file;
+int lengthI, lengthJ = 0;
+const char* getHomePath();
 
 int main() {
-    needlemanWunsch("GCATGCA",7,"GATTACA",7);
-
-
-
+    needlemanWunsch("TACCGCA",7,"TGATGCG",7);
+    //readFiles();
     return 0;
 }
 
+
+
+char* openDnaFile(char* fileName) {
+    FILE *file;
+    char* read;
+    char c;
+    int counter = 0;
+    char path[MAX_NAME_LENGTH+2];
+    strcpy(path,getHomePath()); strcat(path,"/Desktop/"); strcat(path,fileName); strcat(path, extension);
+    printf(path);
+
+    file = fopen(fileName, "r");
+
+    if (file==NULL) {
+        printf(" Error: File %s does not exist \n", fileName);
+    } else {
+        do {
+            c = getc(file);
+            counter++;
+            strcat(read, &c);
+
+        } while (c != EOF);
+    }
+    fclose(file);
+
+    return read;
+}
 
 int readFiles(){
-    int lengthI, lengthJ;
-    char* firstSeq, secondSeq, firstFile, secondFile;
+    int lengthI, lengthJ = 0;
+    char* firstSeq, secondSeq, firstFile[30], secondFile[30];
 
     printf("First sequence: ");
-    lengthI = scanf("%s", firstFile);
+    scanf("%s", firstFile);
 
     printf("Second sequence: ");
-    lengthJ = scanf("%s", secondFile);
+    scanf("%s", secondFile);
 
-    firstSeq = openDnaFile(firstFile, lengthI);
-    secondSeq = openDnaFile(secondFile, lengthJ);
+    firstSeq = openDnaFile(firstFile);
+    secondSeq = openDnaFile(secondFile);
 
-    needlemanWunsch(firstSeq, lengthI, secondSeq, lengthJ);
+    needlemanWunsch(firstSeq, 7, secondSeq, 7);
 
     return 0;
 }
 
-char* openDnaFile(char* fileName, int fileLength) {
-
+const char* getHomePath()
+{
+    if (!(getenv("HOME"))) {
+        return getpwuid(getuid())->pw_dir;
+    }
 }
