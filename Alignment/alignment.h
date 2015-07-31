@@ -14,6 +14,6 @@ static const int MIN_INT = -2147483647;
 
 int getValueOfMatch(char a, char b);
 int getCharValue(char value);
-char* needlemanWunsch(const char*,int,const char*, int);
-
+void needlemanWunsch(const char*,int,const char*, int);
+void bestMove(int** results, short** resultsDirection, int diag, int izq, int der, int i, int j);
 #endif //DNASEQUENCEALIGNMENT_SOURCE_FILE_H
