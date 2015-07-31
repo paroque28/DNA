@@ -10,7 +10,7 @@
  */
 int getValueOfMatch(char a, char b)
 {
-    return matches[getCharValue(a)][getCharValue(b)];
+    return MATCHES[getCharValue(a)][getCharValue(b)];
 }
 /**
  * Se usa para accesar la matriz del match
@@ -25,5 +25,31 @@ int getCharValue(char value) {
         printf ("Error: char not recognized or corrupted char stream");
         exit(1);
     }
+
+}
+
+char *needlemanWunsch(const char *a, int lengtha, const char *b, int lengthb) {
+    int results[lengtha+1][lengthb+1];
+    results[0][0]=0;
+    int diag,izq,der;
+    for (int i = 0; i < lengtha + 1; ++i) {
+        for (int j = 0; j < lengthb + 1; ++j) {
+            //Diagonal
+            if(i&&j)//i!=0 and j!=0. Check si existe lugar
+            {
+                diag = results[i-1][j-1] + getValueOfMatch(a[i],b[j]);
+            }
+            if(i)//Check si existe lugar
+            {
+                izq = results[i-1][j] + GAP;
+            }
+            if(j)//Check si existe lugar
+            {
+                der = results[i][j-1] + GAP;
+            }
+        }
+    }
+
+
 
 }

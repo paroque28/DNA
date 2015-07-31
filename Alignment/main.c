@@ -1,7 +1,7 @@
-#include <stdio.h>
 
+#include "alignment.h"
 int main() {
-    printf("Specify the length of the DNA sequence:");
+
     return 0;
 }
 
