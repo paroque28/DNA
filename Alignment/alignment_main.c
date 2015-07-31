@@ -1,7 +1,7 @@
 
 #include "alignment.h"
 int main() {
-    needlemanWunsch("TGGTG",5,"ATCGT",5);
+    needlemanWunsch("GCATGCA",7,"GATTACA",7);
     return 0;
 }
 

@@ -30,7 +30,7 @@ int commandLine()
 
     scanf("%d", &length);// read from user
 
-    if(length < 7) valid = 0; // invalid input less than 7 digits
+    if(length < 7 && length>1000000) valid = 0; // invalid input less than 7 digits
     else valid = 1;
     if(!valid) goto lengthTag; // reAsk if is an invalid input
     nameTag:

@@ -38,8 +38,9 @@ void needlemanWunsch(const char *a, int lengtha, const char *b, int lengthb) {
     short int resultsDirection[lengtha+1][lengthb+1];
     results[0][0]=0;
     int diag, left, up;
-    for (int i = 0; i < lengtha + 1; ++i) {
-        for (int j = 0; j < lengthb + 1; ++j) {
+    int i, j = 0;
+    for (i = 0; i < lengtha + 1; ++i) {
+        for (j = 0; j < lengthb + 1; ++j) {
             if(!(i||j)) continue;
             diag = MIN_INT; left = MIN_INT; up = MIN_INT;
             //Diagonal
@@ -84,16 +85,16 @@ void needlemanWunsch(const char *a, int lengtha, const char *b, int lengthb) {
         }
     }
     //print the matrix for tests
-    for (int j = 0; j < lengthb + 1; ++j) {
+    for (j = 0; j < lengthb + 1; ++j) {
         printf("[");
-        for (int i = 0; i < lengtha + 1; ++i) {
+        for (i = 0; i < lengtha + 1; ++i) {
 
             printf("%d ",results[i][j]);
         }
         printf("]\n");
     }
-    int i = lengtha;
-    int j = lengthb;
+    i = lengtha;
+    j = lengthb;
     node_t *node = malloc(sizeof(node_t));
     node->dir = resultsDirection[i][j];
     node->next = NULL;
