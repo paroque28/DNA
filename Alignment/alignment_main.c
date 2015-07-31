@@ -18,7 +18,11 @@ int main() {
 }
 
 
-
+/**
+ * @brief openDnaFile opens and processes the DNA files, turning them into inputs
+ * @param fileName the file to be opened, without extension
+ * @return  the char* with the contents of the file
+ */
 char* openDnaFile(char* fileName) {
     FILE *file;
     char* read;
@@ -45,6 +49,10 @@ char* openDnaFile(char* fileName) {
     return read;
 }
 
+/**
+ * @brief readFiles prompts the user and manages the file input
+ * @return 0 when finished correctly
+ */
 int readFiles(){
     int lengthI, lengthJ = 0;
     char* firstSeq, secondSeq, firstFile[30], secondFile[30];
@@ -63,6 +71,10 @@ int readFiles(){
     return 0;
 }
 
+/**
+ * @brief getHomePath gets the location of home for file managing
+ * @return home location
+ */
 const char* getHomePath()
 {
     if (!(getenv("HOME"))) {

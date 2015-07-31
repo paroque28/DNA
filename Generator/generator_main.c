@@ -19,6 +19,10 @@ int main()
     return 0;
 }
 
+/**
+ * @brief commandLine runs the generation interface
+ * @return 0 when finished correctly
+ */
 int commandLine()
 {
     int valid = 1;
@@ -31,6 +35,7 @@ int commandLine()
     if(length < 7 && length>1000000) valid = 0; // invalid input less than 7 digits
     else valid = 1;
     if(!valid) goto lengthTag; // reAsk if is an invalid input
+
     nameTag:
     printf("Specify the NAME of the file:\n");
     char name[MAX_NAME_LENGTH];
@@ -41,6 +46,12 @@ int commandLine()
     generateChain(length, name);
     return 0;
 }
+
+/**
+ * @brief generateChain creates the chain of genes
+ * @param length the specified length of genes
+ * @param name the name of the file were it is going to be saved
+ */
 void generateChain(unsigned int length, const char* name)
 {
     //init file
@@ -59,13 +70,13 @@ void generateChain(unsigned int length, const char* name)
         printf("%c", randomChar);
         fputc(randomChar,fp);
     }
-
     fclose(fp);
-
 }
 
-
-/* Basic random number generation. */
+/**
+ * @brief getRandomNumber produces a random number between 0 and 3
+ * @return the number generated
+ */
 int getRandomNumber() {
     int num =  rand() % 4;
     //printf("%d \n", num);
@@ -73,6 +84,10 @@ int getRandomNumber() {
     return num;
 }
 
+/**
+ * @brief getHomePath gets the location of home for file managing
+ * @return home location
+ */
 const char* getHomePath()
 {
     if (!(getenv("HOME"))) {
