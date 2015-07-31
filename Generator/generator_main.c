@@ -54,9 +54,9 @@ void generateChain(unsigned int length, const char* name)
 
     const char *homedir;
 
-
+    int i = 0;
     char genes[] = {'A','G','C', 'T'};
-    for (int i = 0; i < length; ++i) {
+    for (i = 0; i < length; ++i) {
         char randomChar = genes[getRandomNumber()];
         printf("%c", randomChar);
         fputc(randomChar,fp);
