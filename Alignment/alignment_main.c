@@ -8,14 +8,24 @@
 #include "alignment.h"
 #include "../Constants/constants.h"
 
+typedef struct string{
+    unsigned long length;
+    char *chars;
+}string;
+
 int lengthI, lengthJ = 0;
 const char* getHomePath();
+long get_file_length( FILE *file );
+int readFiles();
+string openDnaFile(char* fileName);
 
 int main() {
-    needlemanWunsch("TACCGCA",7,"TGATGCG",7);
-    //readFiles();
+    readFiles();
     return 0;
 }
+
+
+
 
 
 /**
@@ -23,30 +33,33 @@ int main() {
  * @param fileName the file to be opened, without extension
  * @return  the char* with the contents of the file
  */
-char* openDnaFile(char* fileName) {
+string openDnaFile(char* fileName) {
     FILE *file;
     char* read;
-    char c;
-    int counter = 0;
-    char path[MAX_NAME_LENGTH+2];
-    strcpy(path,getHomePath()); strcat(path,"/Desktop/"); strcat(path,fileName); strcat(path, extension);
-    printf(path);
+    string result;
+    char path[FILENAME_MAX];
+    strcpy(path,getHomePath()); strcat(path,"/Desktop/"); strcat(path,fileName); strcat(path,extension);
+    printf("%s\n",path);
 
-    file = fopen(fileName, "r");
+    file = fopen(path, "r");
+
 
     if (file==NULL) {
-        printf(" Error: File %s does not exist \n", fileName);
+        exit(1);
     } else {
+        char c;
+        result.length = get_file_length(file);
+        printf("Size: %ld \n", result.length);
+        read = malloc(result.length);
         do {
             c = getc(file);
-            counter++;
             strcat(read, &c);
-
         } while (c != EOF);
+        result.chars = read;
     }
     fclose(file);
 
-    return read;
+    return result;
 }
 
 /**
@@ -55,19 +68,19 @@ char* openDnaFile(char* fileName) {
  */
 int readFiles(){
     int lengthI, lengthJ = 0;
-    char* firstSeq, secondSeq, firstFile[30], secondFile[30];
+    char firstFile[FILENAME_MAX], secondFile[FILENAME_MAX];
 
     printf("First sequence: ");
     scanf("%s", firstFile);
 
     printf("Second sequence: ");
     scanf("%s", secondFile);
-
-    firstSeq = openDnaFile(firstFile);
-    secondSeq = openDnaFile(secondFile);
-
-    needlemanWunsch(firstSeq, 7, secondSeq, 7);
-
+    string a = openDnaFile(firstFile);
+    string b = openDnaFile(secondFile);
+    
+    free(&firstFile); free(&secondFile);
+    needlemanWunsch(a.chars,a.length,b.chars,b.length);
+    
     return 0;
 }
 
@@ -77,7 +90,24 @@ int readFiles(){
  */
 const char* getHomePath()
 {
-    if (!(getenv("HOME"))) {
         return getpwuid(getuid())->pw_dir;
+}
+
+/**
+ * Find legth of file
+ */
+long get_file_length( FILE *file ) {
+    fpos_t position; // fpos_t may be a struct and store multibyte info
+    long length; // break support for large files on 32-bit systems
+Read
+    fgetpos( file, &position ); // save previous position in file
+
+    if ( fseek( file, 0, SEEK_END ) // seek to end
+         || ( length = ftell( file ) ) == -1 ) { // determine offset of end
+        perror( "Finding file length" ); // handle overflow
     }
+
+    fsetpos( file, &position ); // restore position
+
+    return length;
 }

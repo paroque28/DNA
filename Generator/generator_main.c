@@ -58,7 +58,7 @@ void generateChain(unsigned int length, const char* name)
     static const FILE* fp;
     char path[MAX_NAME_LENGTH+2];
     strcpy(path,getHomePath()); strcat(path,"/Desktop/"); strcat(path,name); strcat(path, extension);
-    printf(path);
+    printf("%s\n",path);
     fp=fopen(path, "w");
 
     const char *homedir;
@@ -90,7 +90,5 @@ int getRandomNumber() {
  */
 const char* getHomePath()
 {
-    if (!(getenv("HOME"))) {
         return getpwuid(getuid())->pw_dir;
-    }
 }

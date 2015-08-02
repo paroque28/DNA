@@ -22,5 +22,5 @@ After the matrix is done you should start the **TraceBack** where you start look
 * Needleman Wunsch Algorithm in C#. (n.d.). Retrieved August 1, 2015, from http://www.codeproject.com/Tips/638377/Needleman-Wunsch-Algorithm-in-Csharp 
 * Coghlan, Dr Avril. "The Needleman Wunsch Algorithm." Sanger Institute, 1 Aug. 2013. Web. 1 Aug. 2015. <http://www.slideshare.net/avrilcoghlan/the-needleman-wunsch-algorithm>.
 * Roy, Darbeshwar. Bioinformatics. Oxford, U.K.: Alpha Science International, 2009. Print. 
-
+* Counting unknown numbers of chars from a file in C. (2010, April 20). Retrieved August 2, 2015.
 
