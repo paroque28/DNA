@@ -35,7 +35,7 @@ int main() {
  */
 string openDnaFile(char* fileName) {
     FILE *file;
-    char* read;
+    char* read = NULL;
     string result;
     char path[FILENAME_MAX];
     strcpy(path,getHomePath()); strcat(path,"/Desktop/"); strcat(path,fileName); strcat(path,extension);
@@ -50,16 +50,15 @@ string openDnaFile(char* fileName) {
         char c;
         result.length = get_file_length(file);
         printf("Size: %ld \n", result.length);
-        read = malloc(result.length);
-        do {
-            c = getc(file);
-            strcat(read, &c);
-        } while (c != EOF);
+        read = calloc(result.length+1, sizeof(char));
+        fread(read, sizeof(char) , result.length, file);
+        read[result.length+1] = '\0';
         result.chars = read;
     }
     fclose(file);
 
     return result;
+
 }
 
 /**
@@ -77,8 +76,8 @@ int readFiles(){
     scanf("%s", secondFile);
     string a = openDnaFile(firstFile);
     string b = openDnaFile(secondFile);
-    
-    free(&firstFile); free(&secondFile);
+
+
     needlemanWunsch(a.chars,a.length,b.chars,b.length);
     
     return 0;
@@ -99,7 +98,7 @@ const char* getHomePath()
 long get_file_length( FILE *file ) {
     fpos_t position; // fpos_t may be a struct and store multibyte info
     long length; // break support for large files on 32-bit systems
-Read
+
     fgetpos( file, &position ); // save previous position in file
 
     if ( fseek( file, 0, SEEK_END ) // seek to end
