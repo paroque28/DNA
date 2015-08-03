@@ -1,4 +1,4 @@
-# Instituto Tecnologico de Costa Rica
+# Instituto Tecnológico de Costa Rica
 
 # Students:
 - Pablo Rodriguez
@@ -12,10 +12,83 @@ The algorithm of Needleman-Wunsch, used in bioinformatics finds the best alignme
 * The S(i,j-1) + gap penalty
 
 _Where S is the score of that place and F is the function that describes the similarity of two characters._
-
 With that results you should get the maximum value of the three results and that'll be your socore. Note: You need to save the direction you got the maximum value.
-
 After the matrix is done you should start the **TraceBack** where you start looking at the directions and building the chain resultant.
+
+# **Development**
+# Development Environment:
+
+Clion 1.0.5
+A "powerful IDE helps you develop in C and C++ on Linux, OS X and Windows, enhancing your productivity with a smart editor, code quality assurance, automated refactorings, and deep integration with CMake build system."
+
+Github
+Is a "Online project hosting using Git. Includes source-code browser, in-line editing, wikis, and ticketing."
+
+MarkDown
+
+
+Dillinger.io
+Is an online MarkDown editor
+
+# Data Structures, functions and libraries
+
+char*
+array int[][]
+
+#include <stdio.h> 
+The standard input and output header defines three variable types, several macros, and various functions for performing input and output.
+
+#include <stdlib.h>
+The standard library header defines four variable types, several macros, and various functions for performing general functions. In our case mostly file management.
+
+#include <string.h>
+The string header defines one variable type, one macro, and various functions for manipulating arrays of characters.
+
+#include <pwd.h>
+The password structure header provides a definition for struct passwd, which helps with finding the initial working directory.
+
+#include <unistd.h>
+The standard symbolic constants and types header defines miscellaneous symbolic constants and types, and declares miscellaneous functions.
+
+#include <time.h>
+The time types header defines four variable types, two macro and various functions for manipulating date and time.
+
+#Programs
+
+_DNA Sequence Generator_
+
+The program runs a random algorythm implemented with a C library that uses a time seed to generate numbers. The numbers are hen asigne to characters that represent the genes. The characters are then stored in a file.
+
+To create the algorythm we studied the random generation in the rand() library and the file management and used a for-loop to create the specified amount of genes
+
+Test cases:
+
+_DNA Sequence Aligner_
+
+The program analyses two strings of characters that represent the gene sequences and aligns them in the best way -the one with more matches- using the Neeldeman-Wunsch algorythm.
+
+Posibles mejoras futuras.
+Test cases:
+
+_FileManager_
+
+In order to load the sequences for the program we use a file. "A file is a collection of bytes stored on a secondary storage device, which is generally a disk of some kind.  A text file can be thought of as a stream of characters that can be processed sequentially." Both the DNA sequence creator and the DNA aligner manage .dna files, this collection of bytes are interpreted as char pointers. This means that the files are stored without extra interpretation by the program. Since underneath characteres are interpreted as integers by C, the file is stored in a very fast way. The only way to speed up this process and save resources is managing the genes as 2-bit types that are interpreted by the program with the help of masks.
+
+The C library function int rand(void) returns a pseudo-random number in the range of 0 to a constant whose default value may vary between implementations but it is granted to be at least 32767. For this program we reduced it to 4, which allows us to associate numbers to each of our gens.
+
+The only way to speed up this process and save resources is managing the genes as 2-bit types that are interpreted by the program with the help of masks. This will cause the .dna file to be unreadable for the user with text editors.
+
+#Project's Final Status
+
+# User's Manual
+
+When running a program the 
+
+# Conclusions and Recomendations
+
+Opening a large .dna file can take a while
+
+
 
 # References:
 
@@ -23,4 +96,9 @@ After the matrix is done you should start the **TraceBack** where you start look
 * Coghlan, Dr Avril. "The Needleman Wunsch Algorithm." Sanger Institute, 1 Aug. 2013. Web. 1 Aug. 2015. <http://www.slideshare.net/avrilcoghlan/the-needleman-wunsch-algorithm>.
 * Roy, Darbeshwar. Bioinformatics. Oxford, U.K.: Alpha Science International, 2009. Print. 
 * Counting unknown numbers of chars from a file in C. (2010, April 20). Retrieved August 2, 2015.
+* C library function - rand(). Retrieved August 1, 2015 from <http://www.tutorialspoint.com/c_standard_library/c_function_rand.htm>
+* M. Campbell "File Management in C". Retrieved August 1, 2015 from 
+<http://www.prog2impress.com/downloads/file%20management%20in%20c.pdf>
 
+https://www.jetbrains.com/clion/
+https://github.com/
