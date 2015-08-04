@@ -3,6 +3,7 @@
 # Students:
 - Pablo Rodriguez
 - Josafat Vargas
+- 
 # **Investigation Project: Sequence Alignment**
 # Introduction: 
 The algorithm of Needleman-Wunsch, used in bioinformatics finds the best alignment of two characters chains. It is implemented in C Programming Language and it consists on doing a matrix of scores. We start at (0,0) with a score of 0 and then we calculate three scores:
@@ -25,10 +26,10 @@ Github
 Is a "Online project hosting using Git. Includes source-code browser, in-line editing, wikis, and ticketing."
 
 MarkDown
+Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML).
 
-
-Dillinger.io
-Is an online MarkDown editor
+Dillinger
+Is an online cloud based HTML5 filled Markdown Editor. Sync with Dropbox, Github and Google Drive.
 
 # Data Structures, functions and libraries
 
@@ -82,7 +83,7 @@ The only way to speed up this process and save resources is managing the genes a
 
 # User's Manual
 
-When running a program the 
+When executing a problem a terminal windo opens 
 
 # Conclusions and Recomendations
 
@@ -99,6 +100,6 @@ Opening a large .dna file can take a while
 * C library function - rand(). Retrieved August 1, 2015 from <http://www.tutorialspoint.com/c_standard_library/c_function_rand.htm>
 * M. Campbell "File Management in C". Retrieved August 1, 2015 from 
 <http://www.prog2impress.com/downloads/file%20management%20in%20c.pdf>
-
-https://www.jetbrains.com/clion/
-https://github.com/
+* J. Gruber "Markdown"Dec 17th, 2004 Retrieved August 3, 2015 from <http://daringfireball.net/projects/markdown/>
+* https://www.jetbrains.com/clion/
+* https://github.com/
