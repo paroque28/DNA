@@ -3,7 +3,7 @@
 # Students:
 - Pablo Rodriguez
 - Josafat Vargas
-- 
+
 # **Investigation Project: Sequence Alignment**
 # Introduction: 
 The algorithm of Needleman-Wunsch, used in bioinformatics finds the best alignment of two characters chains. It is implemented in C Programming Language and it consists on doing a matrix of scores. We start at (0,0) with a score of 0 and then we calculate three scores:
@@ -54,13 +54,13 @@ The standard symbolic constants and types header defines miscellaneous symbolic 
 #include <time.h>
 The time types header defines four variable types, two macro and various functions for manipulating date and time.
 
-#Programs
+# Programs
 
 _DNA Sequence Generator_
 
 The program runs a random algorythm implemented with a C library that uses a time seed to generate numbers. The numbers are hen asigne to characters that represent the genes. The characters are then stored in a file.
 
-To create the algorythm we studied the random generation in the rand() library and the file management and used a for-loop to create the specified amount of genes
+To create the algorythm we studied the random generation in the random library and the file management and used a for-loop to create the specified amount of genes. The C library function <int rand(void)> returns a pseudo-random number in the range of 0 to a constant whose default value may vary between implementations but it is granted to be at least 32767. For this program we reduced it to 4, which allows us to associate numbers to each of our gens.
 
 Test cases:
 
@@ -68,22 +68,23 @@ _DNA Sequence Aligner_
 
 The program analyses two strings of characters that represent the gene sequences and aligns them in the best way -the one with more matches- using the Neeldeman-Wunsch algorythm.
 
-Posibles mejoras futuras.
 Test cases:
 
-_FileManager_
+_File manager_
 
 In order to load the sequences for the program we use a file. "A file is a collection of bytes stored on a secondary storage device, which is generally a disk of some kind.  A text file can be thought of as a stream of characters that can be processed sequentially." Both the DNA sequence creator and the DNA aligner manage .dna files, this collection of bytes are interpreted as char pointers. This means that the files are stored without extra interpretation by the program. Since underneath characteres are interpreted as integers by C, the file is stored in a very fast way. The only way to speed up this process and save resources is managing the genes as 2-bit types that are interpreted by the program with the help of masks.
 
-The C library function int rand(void) returns a pseudo-random number in the range of 0 to a constant whose default value may vary between implementations but it is granted to be at least 32767. For this program we reduced it to 4, which allows us to associate numbers to each of our gens.
-
 The only way to speed up this process and save resources is managing the genes as 2-bit types that are interpreted by the program with the help of masks. This will cause the .dna file to be unreadable for the user with text editors.
 
-#Project's Final Status
+# Project's Final Status
 
 # User's Manual
 
-When executing a problem a terminal windo opens 
+_DNA Sequence Generator_
+When executing a problem a terminal window opens an indicates the user to input the length of the gene sequence. After this the program will ask for the name of file where the sequence will be stored. The file's extension is not required since the program automatically adds the ".dna" suffix. The file is then stored in the desktop.
+
+_DNA Sequence Aligner_
+The pograms displays a terminal window and asks for the two files that contain the dna sequences to be aligned. 
 
 # Conclusions and Recomendations
 
