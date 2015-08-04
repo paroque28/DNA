@@ -31,9 +31,10 @@ Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you 
 Dillinger
 Is an online cloud based HTML5 filled Markdown Editor. Sync with Dropbox, Github and Google Drive.
 
-# Data Structures, functions and libraries
+# Data Structures and libraries
 
 char*
+
 array int[][]
 
 #include <stdio.h> 
@@ -63,12 +64,32 @@ The program runs a random algorythm implemented with a C library that uses a tim
 To create the algorythm we studied the random generation in the random library and the file management and used a for-loop to create the specified amount of genes. The C library function <int rand(void)> returns a pseudo-random number in the range of 0 to a constant whose default value may vary between implementations but it is granted to be at least 32767. For this program we reduced it to 4, which allows us to associate numbers to each of our gens.
 
 Test cases:
+* 7
+* 9
+* 1 000 000
+* 1 000 001
+* 1 000 100
 
 _DNA Sequence Aligner_
 
 The program analyses two strings of characters that represent the gene sequences and aligns them in the best way -the one with more matches- using the Neeldeman-Wunsch algorythm.
 
 Test cases:
+* Weird character needlemanWunsch("GCATGCU",7,"GATTACA",7); output: Error: char not recognized : 'U' or corrupted char stream
+
+* One gen in common (same size, same position) needlemanWunsch("GGTGGGGG",8,"AATAAAAA",8);
+
+* One gen in common (same size, different position) needlemanWunsch("GGTGGGGG",8,"AAAAATAA",8);
+
+* One gen in common (odd sizes, same position) needlemanWunsch("GGTGGGGG",8,"AATAAAA",7);
+
+* One gen in common (odd sizes, different position) needlemanWunsch("GGTGGGGG",8,"AAAATAA",7);
+
+* The amount of characters are different from specified needlemanWunsch("GGTGGGGG",8,"AAAATAA",8); output: Error: char not recognized : ' ' or corrupted char stream
+
+* Comparison with empty file needlemanWunsch("",0,"AAAATAA",8); output: No error, empty comparison, ie, zero matches
+
+Note: Expected result were no error or output noted. Tests made directly into the comparison function.
 
 _File manager_
 
