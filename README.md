@@ -62,9 +62,9 @@ The time types header defines four variable types, two macro and various functio
 
 _DNA Sequence Generator_
 
-The program runs a random algorythm implemented with a C library that uses a time seed to generate numbers. The numbers are hen asigne to characters that represent the genes. The characters are then stored in a file.
+The program runs a random algorithm implemented with a C library that uses a time seed to generate numbers. The numbers are hen asigne to characters that represent the genes. The characters are then stored in a file.
 
-To create the algorythm we studied the random generation in the random library and the file management and used a for-loop to create the specified amount of genes. The C library function <int rand(void)> returns a pseudo-random number in the range of 0 to a constant whose default value may vary between implementations but it is granted to be at least 32767. For this program we reduced it to 4, which allows us to associate numbers to each of our gens.
+To create the algorithm we studied the random generation in the random library and the file management and used a for-loop to create the specified amount of genes. The C library function <int rand(void)> returns a pseudo-random number in the range of 0 to a constant whose default value may vary between implementations but it is granted to be at least 32767. For this program we reduced it to 4, which allows us to associate numbers to each of our gens.
 
 Test cases:
 * 7, seqa
@@ -78,7 +78,7 @@ Note: Expected result were no error or output noted. Tests made with the termina
 
 _DNA Sequence Aligner_
 
-The program analyses two strings of characters that represent the gene sequences and aligns them in the best way -the one with more matches- using the Neeldeman-Wunsch algorythm.
+The program analyses two strings of characters that represent the gene sequences and aligns them in the best way -the one with more matches- using the Neeldeman-Wunsch algorithm.
 
 Test cases:
 * Weird character needlemanWunsch("GCATGCU",7,"GATTACA",7); output: Error: char not recognized : 'U' or corrupted char stream
@@ -95,7 +95,8 @@ Test cases:
 
 * Comparison with empty file needlemanWunsch("",0,"AAAATAA",8); output: No error, empty comparison, ie, zero matches
 
-Note: Expected result were no error or output noted. Tests made directly into the comparison function.
+Note: Expected result were no error or output noted. Tests made directly into the comparison function, since reading the files was succesfull.
+
 
 _File manager_
 
@@ -111,7 +112,7 @@ _DNA Sequence Generator_
 When executing a problem a terminal window opens an indicates the user to input the length of the gene sequence. After this the program will ask for the name of file where the sequence will be stored. The file's extension is not required since the program automatically adds the ".dna" suffix. The file is then stored in the desktop.
 
 _DNA Sequence Aligner_
-The pograms displays a terminal window and asks for the two files that contain the dna sequences to be aligned. 
+The pograms displays a terminal window and asks for the two files that contain the dna sequences to be aligned. Both files must be in the desktop folder. The terminals the runs the algorithm and presents to the user the table that was created from analyzing the sequences together and the best alignment, matches included, of the two sequences.
 
 # Conclusions and Recomendations
 
