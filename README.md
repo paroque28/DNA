@@ -14,30 +14,33 @@ The algorithm of Needleman-Wunsch, used in bioinformatics finds the best alignme
 
 _Where S is the score of that place and F is the function that describes the similarity of two characters._
 With that results you should get the maximum value of the three results and that'll be your socore. Note: You need to save the direction you got the maximum value.
+
 After the matrix is done you should start the **TraceBack** where you start looking at the directions and building the chain resultant.
 
 # **Development**
 # Development Environment:
 
-Clion 1.0.5
+_Clion 1.0.5_
+
 A "powerful IDE helps you develop in C and C++ on Linux, OS X and Windows, enhancing your productivity with a smart editor, code quality assurance, automated refactorings, and deep integration with CMake build system."
 
-Github
+_Github_
+
 Is a "Online project hosting using Git. Includes source-code browser, in-line editing, wikis, and ticketing."
 
-MarkDown
+_MarkDown_
+
 Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML).
 
-Dillinger
+_Dillinger_
+
 Is an online cloud based HTML5 filled Markdown Editor. Sync with Dropbox, Github and Google Drive.
 
 # Data Structures and libraries
 
-char*
+array int[][]:  C programming language provides a data structure called the array, which can store a fixed-size sequential collection of elements of the same type. An array is used to store a collection of data, but it is often more useful to think of an array as a collection of variables of the same type.
 
-array int[][]
-
-#include <stdio.h> 
+#include <stdio.h>
 The standard input and output header defines three variable types, several macros, and various functions for performing input and output.
 
 #include <stdlib.h>
@@ -64,11 +67,14 @@ The program runs a random algorythm implemented with a C library that uses a tim
 To create the algorythm we studied the random generation in the random library and the file management and used a for-loop to create the specified amount of genes. The C library function <int rand(void)> returns a pseudo-random number in the range of 0 to a constant whose default value may vary between implementations but it is granted to be at least 32767. For this program we reduced it to 4, which allows us to associate numbers to each of our gens.
 
 Test cases:
-* 7
-* 9
-* 1 000 000
-* 1 000 001
-* 1 000 100
+* 7, seqa
+* 9, seqb
+* 1 000 000, million
+* 1 000 001, millionandone
+* 1 000 100, millionplus
+* a; output: An empty .dna file named "a.dna".
+
+Note: Expected result were no error or output noted. Tests made with the terminal interface.
 
 _DNA Sequence Aligner_
 
@@ -109,8 +115,8 @@ The pograms displays a terminal window and asks for the two files that contain t
 
 # Conclusions and Recomendations
 
-Opening a large .dna file can take a while
-
+* Opening a large .dna file can take a while, changing the implementation to 2-bit code would make smaller but unreadable to text editors.
+* Calling the random generation seed at the begining of the problem solves problems that cause the seed to be the same every run.
 
 
 # References:
@@ -120,8 +126,9 @@ Opening a large .dna file can take a while
 * Roy, Darbeshwar. Bioinformatics. Oxford, U.K.: Alpha Science International, 2009. Print. 
 * Counting unknown numbers of chars from a file in C. (2010, April 20). Retrieved August 2, 2015.
 * C library function - rand(). Retrieved August 1, 2015 from <http://www.tutorialspoint.com/c_standard_library/c_function_rand.htm>
+* C - Arrays. Retrieved August 4, 2015 from <http://www.tutorialspoint.com/cprogramming/c_arrays.htm>
 * M. Campbell "File Management in C". Retrieved August 1, 2015 from 
 <http://www.prog2impress.com/downloads/file%20management%20in%20c.pdf>
 * J. Gruber "Markdown"Dec 17th, 2004 Retrieved August 3, 2015 from <http://daringfireball.net/projects/markdown/>
-* https://www.jetbrains.com/clion/
-* https://github.com/
+* JetBrains main page. Retrieved August 3, 23015 from <https://www.jetbrains.com/clion/>
+* Github main page. Retrieved August 3, 2015 from <https://github.com/>
