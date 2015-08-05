@@ -16,15 +16,19 @@ typedef struct string{
 int lengthI, lengthJ = 0;
 const char* getHomePath();
 long get_file_length( FILE *file );
-int readFiles();
+int readFiles(char *firstFile,char *secondFile);
 string openDnaFile(char* fileName);
 
-int main() {
-    readFiles();
+int main(int argc, char **argv) {
+    if(argc!=3)/*3 because even the executables name string is on argc*/
+    {
+        printf("Usage: '%s file1 file2' . Note that files doesnt include extension.\n", argv[0]);
+        printf("Unexpected number of arguments\n");
+        return -1;
+    }
+    readFiles(argv[1],argv[2]);
     return 0;
 }
-
-
 
 
 
@@ -65,15 +69,7 @@ string openDnaFile(char* fileName) {
  * @brief readFiles prompts the user and manages the file input
  * @return 0 when finished correctly
  */
-int readFiles(){
-    int lengthI, lengthJ = 0;
-    char firstFile[FILENAME_MAX], secondFile[FILENAME_MAX];
-
-    printf("First sequence: ");
-    scanf("%s", firstFile);
-
-    printf("Second sequence: ");
-    scanf("%s", secondFile);
+int readFiles(char *firstFile,char *secondFile){
     string a = openDnaFile(firstFile);
     string b = openDnaFile(secondFile);
 
