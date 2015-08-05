@@ -1,4 +1,4 @@
-# Instituto Tecnológico de Costa Rica
+# Instituto TecnolC3gico de Costa Rica
 
 # Students:
 - Pablo Rodriguez
@@ -40,22 +40,22 @@ Is an online cloud based HTML5 filled Markdown Editor. Sync with Dropbox, Github
 
 array int[][]:  C programming language provides a data structure called the array, which can store a fixed-size sequential collection of elements of the same type. An array is used to store a collection of data, but it is often more useful to think of an array as a collection of variables of the same type.
 
-#include <stdio.h>
+# include <stdio.h>
 The standard input and output header defines three variable types, several macros, and various functions for performing input and output.
 
-#include <stdlib.h>
+# include <stdlib.h>
 The standard library header defines four variable types, several macros, and various functions for performing general functions. In our case mostly file management.
 
-#include <string.h>
+# include <string.h>
 The string header defines one variable type, one macro, and various functions for manipulating arrays of characters.
 
-#include <pwd.h>
+# include <pwd.h>
 The password structure header provides a definition for struct passwd, which helps with finding the initial working directory.
 
-#include <unistd.h>
+# include <unistd.h>
 The standard symbolic constants and types header defines miscellaneous symbolic constants and types, and declares miscellaneous functions.
 
-#include <time.h>
+# include <time.h>
 The time types header defines four variable types, two macro and various functions for manipulating date and time.
 
 # Programs
@@ -113,6 +113,18 @@ When executing a problem a terminal window opens an indicates the user to input 
 
 _DNA Sequence Aligner_
 The pograms displays a terminal window and asks for the two files that contain the dna sequences to be aligned. Both files must be in the desktop folder. The terminals the runs the algorithm and presents to the user the table that was created from analyzing the sequences together and the best alignment, matches included, of the two sequences.
+
+# TimeSheet
+**Pablo Rodriguez**
+
+Duration  | Activity
+------------- | -------------
+2 h  | Investigation about the algorothim
+4 h  | Coding the generator (had to investigate about scanner and printf)
+5 h  | Programming the matrix of scores
+5 h  | Making the traceback eith the matrix of directions
+2 h  | Bug fixing (I/O problems)
+
 
 # Conclusions and Recomendations
 
