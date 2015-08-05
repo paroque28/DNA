@@ -40,22 +40,22 @@ Is an online cloud based HTML5 filled Markdown Editor. Sync with Dropbox, Github
 
 array int[][]:  C programming language provides a data structure called the array, which can store a fixed-size sequential collection of elements of the same type. An array is used to store a collection of data, but it is often more useful to think of an array as a collection of variables of the same type.
 
-# include <stdio.h>
+# include stdio.h
 The standard input and output header defines three variable types, several macros, and various functions for performing input and output.
 
-# include <stdlib.h>
+# include stdlib.h
 The standard library header defines four variable types, several macros, and various functions for performing general functions. In our case mostly file management.
 
-# include <string.h>
+# include string.h
 The string header defines one variable type, one macro, and various functions for manipulating arrays of characters.
 
-# include <pwd.h>
+# include pwd.h
 The password structure header provides a definition for struct passwd, which helps with finding the initial working directory.
 
-# include <unistd.h>
+# include unistd.h
 The standard symbolic constants and types header defines miscellaneous symbolic constants and types, and declares miscellaneous functions.
 
-# include <time.h>
+# include time.h
 The time types header defines four variable types, two macro and various functions for manipulating date and time.
 
 # Programs
@@ -127,7 +127,8 @@ Duration  | Activity
 
 
 # Conclusions and Recomendations
-
+* The matrix technique of finding the path is pretty easy and also very efficient. Although it can be hard to understand at first is easy to code.
+* The alignment algorithm used in this project works as charm, making fast pattern recognition on dna sequences.
 * Opening a large .dna file can take a while, changing the implementation to 2-bit code would make smaller but unreadable to text editors.
 * Calling the random generation seed at the begining of the problem solves problems that cause the seed to be the same every run.
 
