@@ -1,4 +1,4 @@
-# Instituto TecnolC3gico de Costa Rica
+# Instituto Tecnologico de Costa Rica
 
 # Students:
 - Pablo Rodriguez
