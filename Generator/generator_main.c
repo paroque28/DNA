@@ -25,14 +25,14 @@ int main()
  */
 int commandLine()
 {
-    int valid = 1;
+    int valid;
     unsigned int length = 0;
     lengthTag: // tag to return if something went wrong
     printf("Specify the length of the DNA sequence:\n");
 
     scanf("%d", &length);// read from user
 
-    if(length < 7 && length>1000000) valid = 0; // invalid input less than 7 digits
+    if(length < 7 || length>1000000) valid = 0; // invalid input less than 7 digits
     else valid = 1;
     if(!valid) goto lengthTag; // reAsk if is an invalid input
 
@@ -44,6 +44,7 @@ int commandLine()
     else valid =1;
     if(!valid) goto nameTag; // reAsk if is an invalid input
     generateChain(length, name);
+    printf("\n");
     return 0;
 }
 
@@ -60,7 +61,6 @@ void generateChain(unsigned int length, const char* name)
     strcpy(path,getHomePath()); strcat(path,"/Desktop/"); strcat(path,name); strcat(path, extension);
     printf("%s\n",path);
     fp=fopen(path, "w");
-
     const char *homedir;
 
     int i = 0;

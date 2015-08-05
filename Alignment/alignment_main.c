@@ -51,9 +51,13 @@ string openDnaFile(char* fileName) {
     if (file==NULL) {
         exit(1);
     } else {
-        char c;
         result.length = get_file_length(file);
         printf("Size: %ld \n", result.length);
+        if(result.length<=7)
+        {
+            printf("Error length too short... Exit now");
+            exit(1);
+        }
         read = calloc(result.length+1, sizeof(char));
         fread(read, sizeof(char) , result.length, file);
         read[result.length+1] = '\0';
@@ -93,7 +97,7 @@ const char* getHomePath()
  */
 long get_file_length( FILE *file ) {
     fpos_t position; // fpos_t may be a struct and store multibyte info
-    long length; // break support for large files on 32-bit systems
+    long length = 0; // break support for large files on 32-bit systems
 
     fgetpos( file, &position ); // save previous position in file
 
