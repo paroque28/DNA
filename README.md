@@ -106,6 +106,10 @@ The only way to speed up this process and save resources is managing the genes a
 
 # Project's Final Status
 
+Both programs are running as expected.
+
+No known bugs.
+
 # User's Manual
 
 _DNA Sequence Generator_
@@ -114,17 +118,28 @@ When executing a problem a terminal window opens an indicates the user to input 
 _DNA Sequence Aligner_
 The pograms displays a terminal window and asks for the two files that contain the dna sequences to be aligned. Both files must be in the desktop folder. The terminals the runs the algorithm and presents to the user the table that was created from analyzing the sequences together and the best alignment, matches included, of the two sequences.
 
+# Student's Activity Log
 # TimeSheet
 **Pablo Rodriguez**
 
 Duration  | Activity
 ------------- | -------------
-2 h  | Investigation about the algorothim
-4 h  | Coding the generator (had to investigate about scanner and printf)
-5 h  | Programming the matrix of scores
-5 h  | Making the traceback eith the matrix of directions
-2 h  | Bug fixing (I/O problems)
+2 h  | Investigation about the algorothim.
+4 h  | Coding the generator (had to investigate about scanner and printf).
+5 h  | Programming the matrix of scores.
+5 h  | Making the traceback eith the matrix of directions.
+2 h  | Bug fixing (I/O problems).
 
+
+**Josafat Vargas**
+
+Duration  | Activity
+------------- | -------------
+3 h  | Used a video to research the algorithm. The code wasn't used since it wasn't the original algorithm.
+2 h  | Coding the basic file managing functions. This will later be spread across the code as needed.
+2 h  | Researching an implementing the random function.
+1 h  | Quality Assurance.
+4 h  | Documenting the program and the source code.
 
 # Conclusions and Recomendations
 * The matrix technique of finding the path is pretty easy and also very efficient. Although it can be hard to understand at first is easy to code.
